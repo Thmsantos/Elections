@@ -1,11 +1,7 @@
 import { Elysia } from "elysia";
 import { createCandidateSchema, takeVoteSchema } from "./src/types/types";
 import { createCandidate, getCandidates, getResults, takeVote } from "./src/handlers";
-import path from "path";
-import fs from "fs";
 import swagger from "@elysiajs/swagger";
-
-const swaggerFilePath = path.join(process.cwd(), "swagger.json");
 
 new Elysia()
   .use(swagger())
