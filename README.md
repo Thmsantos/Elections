@@ -1,4 +1,6 @@
-# prisma_and_postgresql
+# Elections API
+
+## Installation
 
 To install dependencies:
 
@@ -8,8 +10,41 @@ bun install
 
 To run:
 
-```bash
+```ts
 bun run index.ts
 ```
 
-This project was created using `bun init` in bun v1.2.23. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+
+Create a .env file with the following variables:
+
+```
+DATABASE_URL="your database URL"
+API_KEY="your api key" # Required only for Admin
+```
+
+API Documentation
+
+Access the Swagger documentation at:
+
+```bash
+http://localhost:3200/swagger
+```
+
+About the API: Sistema de Votação
+
+This project implements a simple voting system with two types of users: Admin and Voter.
+Actors
+
+Admin
+
+- Possui uma chave secreta para autenticação.
+
+- Pode cadastrar novos candidatos no sistema.
+
+Voter (Eleitor)
+
+- Pode votar nos candidatos cadastrados.
+
+- Pode consultar a lista de candidatos.
+
+- Pode visualizar a quantidade de votos de cada candidato.
