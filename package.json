@@ -7,6 +7,14 @@
     "@types/bun": "latest",
     "@types/swagger-ui-dist": "^3.30.6"
   },
+  "scripts": {
+    "dev": "bun index.ts",
+    "studio": "bunx prisma studio",
+    "migrate": "bunx prisma migrate dev --name init",
+    "generate": "bunx prisma generate",
+    "build": "bun build index.ts --outdir dist",
+    "start": "bun dist/index.js"
+  },
   "peerDependencies": {
     "typescript": "^5"
   },
