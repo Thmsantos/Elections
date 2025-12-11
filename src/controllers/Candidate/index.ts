@@ -4,7 +4,7 @@ import { getResultsService } from "../../services/GetResults";
 import CandidateController from "./CandidateController";
 
 export const candidateController = new CandidateController(
-  createCandidateService,
-  getCandidatesService,
-  getResultsService,
+    createCandidateService,
+    getCandidatesService,
+    getResultsService,
 );

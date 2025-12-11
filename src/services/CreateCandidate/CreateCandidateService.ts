@@ -2,28 +2,28 @@ import type CandidateRepository from "../../repositories/Candidates/CandidateRep
 import type { CandidateBody } from "../../types/types";
 
 export default class CreateCandidateService {
-  private candidateRepository: CandidateRepository;
+    private candidateRepository: CandidateRepository;
 
-  constructor(candidateRepository: CandidateRepository) {
-    this.candidateRepository = candidateRepository;
-  }
-
-  public async execute(body: CandidateBody, request: Request) {
-    const API_KEY = process.env.API_KEY;
-    const { name } = body;
-
-    const key = request.headers.get("api-key");
-    if (key !== API_KEY) {
-      throw new Error("UNAUTHORIZED");
+    constructor(candidateRepository: CandidateRepository) {
+        this.candidateRepository = candidateRepository;
     }
 
-    const exists = await this.candidateRepository.findByName(name);
-    if (exists) {
-      throw new Error("USER_EXISTS");
+    public async execute(body: CandidateBody, request: Request) {
+        const API_KEY = process.env.API_KEY;
+        const { name } = body;
+
+        const key = request.headers.get("api-key");
+        if (key !== API_KEY) {
+            throw new Error("UNAUTHORIZED");
+        }
+
+        const exists = await this.candidateRepository.findByName(name);
+        if (exists) {
+            throw new Error("USER_EXISTS");
+        }
+
+        await this.candidateRepository.create(name);
+
+        return true;
     }
-
-    await this.candidateRepository.create(name);
-
-    return true;
-  }
 }
