@@ -24,8 +24,6 @@ export default class CandidateRepository {
     }
 
     public async findResults() {
-        console.log("bate aq?", await this.db.candidate.findMany());
-
         return this.db.candidate.findMany({
             select: { name: true, votes: true },
             orderBy: { votes: "desc" },
