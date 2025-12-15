@@ -1,5 +1,5 @@
 import type { Context } from "elysia";
-import type { CandidateBody } from "../../../types/types";
+import type { CandidateBody } from "../../../application/value_objects/types/types";
 import type CreateCandidateService from "../../../application/services/CreateCandidate/CreateCandidateService";
 import type GetCandidatesService from "../../../application/services/GetCandidatesService/GetCandidatesService";
 import type GetResultsService from "../../../application/services/GetResults/GetResultsService";

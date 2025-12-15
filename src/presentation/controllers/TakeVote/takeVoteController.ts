@@ -1,5 +1,5 @@
 import type { Context } from "elysia";
-import type { TakeVoteBody } from "../../../types/types";
+import type { TakeVoteBody } from "../../../application/value_objects/types/types";
 import TakeVoteService from "../../../application/services/TakeVote/TakeVoteService";
 
 export default class TakeVoteController {
