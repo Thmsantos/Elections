@@ -1,8 +1,8 @@
 import { Elysia } from "elysia";
 import swagger from "@elysiajs/swagger";
 
-import { candidateRoutes } from "./src/routes/candidateRoutes";
-import { voteRoutes } from "./src/routes/voteRoutes";
+import { candidateRoutes } from "./src/presentation/routes/candidateRoutes";
+import { voteRoutes } from "./src/presentation/routes/voteRoutes";
 
 new Elysia().use(swagger()).use(candidateRoutes).use(voteRoutes).listen(3200);
 

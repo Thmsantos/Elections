@@ -1,4 +1,4 @@
-import type CandidateRepository from "../../repositories/Candidates/CandidateRepository";
+import type CandidateRepository from "../../../domain/repositories/Candidates/CandidateRepository";
 
 export default class GetResultsService {
     private candidateRepository: CandidateRepository;

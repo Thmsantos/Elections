@@ -1,5 +1,5 @@
-import type TakeVoteRepository from "../../repositories/TakeVote/TakeVoteRepository";
-import type { TakeVoteBody } from "../../types/types";
+import type TakeVoteRepository from "../../../domain/repositories/TakeVote/TakeVoteRepository";
+import type { TakeVoteBody } from "../../../types/types";
 
 export default class TakeVoteService {
     private takeVoteRepository: TakeVoteRepository;
