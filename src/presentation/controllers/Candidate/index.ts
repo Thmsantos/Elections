@@ -1,6 +1,6 @@
-import { createCandidateService } from "../../../core/services/CreateCandidate";
-import { getCandidatesService } from "../../../core/services/GetCandidatesService";
-import { getResultsService } from "../../../core/services/GetResults";
+import { createCandidateService } from "../../../core/services/Candidate/CreateCandidate";
+import { getCandidatesService } from "../../../core/services/Candidate/GetCandidatesService";
+import { getResultsService } from "../../../core/services/Candidate/GetResults";
 import CandidateController from "./CandidateController";
 
 export const candidateController = new CandidateController(

@@ -1,8 +1,8 @@
 import type { Context } from "elysia";
 import type { CandidateBody } from "../../../core/value_objects/types/types";
-import type CreateCandidateService from "../../../core/services/CreateCandidate/CreateCandidateService";
-import type GetCandidatesService from "../../../core/services/GetCandidatesService/GetCandidatesService";
-import type GetResultsService from "../../../core/services/GetResults/GetResultsService";
+import type CreateCandidateService from "../../../core/services/Candidate/CreateCandidate/CreateCandidateService";
+import type GetCandidatesService from "../../../core/services/Candidate/GetCandidatesService/GetCandidatesService";
+import type GetResultsService from "../../../core/services/Candidate/GetResults/GetResultsService";
 
 export default class CandidateController {
     private createCandidateService;
