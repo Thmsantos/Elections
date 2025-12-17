@@ -1,6 +1,6 @@
 import type { Context } from "elysia";
-import type { TakeVoteBody } from "../../../application/value_objects/types/types";
-import TakeVoteService from "../../../application/services/TakeVote/TakeVoteService";
+import type { VotesBody } from "../../../core/value_objects/types/types";
+import TakeVoteService from "../../../core/services/Votes/VotesService";
 
 export default class TakeVoteController {
     private takeVoteService: TakeVoteService;
@@ -9,7 +9,7 @@ export default class TakeVoteController {
         this.takeVoteService = takeVoteService;
     }
 
-    public async vote(ctx: Context<{ body: TakeVoteBody }>) {
+    public async vote(ctx: Context<{ body: VotesBody }>) {
         try {
             await this.takeVoteService.execute(ctx.body);
 

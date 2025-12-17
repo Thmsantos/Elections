@@ -1,6 +1,6 @@
 import type { PrismaClient } from "@prisma/client";
 
-export default class TakeVoteRepository {
+export default class VotesRepository {
     private db: PrismaClient;
 
     constructor(db: PrismaClient) {

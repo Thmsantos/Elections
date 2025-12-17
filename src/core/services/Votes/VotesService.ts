@@ -1,14 +1,14 @@
-import type TakeVoteRepository from "../../../domain/repositories/TakeVote/TakeVoteRepository";
-import type { TakeVoteBody } from "../../value_objects/types/types";
+import type TakeVoteRepository from "../../../domain/repositories/Votes/VotesRepository";
+import type { VotesBody } from "../../value_objects/types/types";
 
-export default class TakeVoteService {
+export default class VotesService {
     private takeVoteRepository: TakeVoteRepository;
 
     constructor(takeVoteRepository: TakeVoteRepository) {
         this.takeVoteRepository = takeVoteRepository;
     }
 
-    public async execute(body: TakeVoteBody) {
+    public async execute(body: VotesBody) {
         const { name } = body;
 
         const exists = await this.takeVoteRepository.findCandidateByName(name);

@@ -1,6 +1,6 @@
 import { Elysia } from "elysia";
 import { candidateController } from "../controllers/Candidate";
-import { createCandidateSchema } from "../../application/value_objects/types/types";
+import { createCandidateSchema } from "../../core/value_objects/types/types";
 
 export const candidateRoutes = new Elysia({ prefix: "/candidates" })
     .post("/", candidateController.create.bind(candidateController), {
