@@ -1,3 +1,3 @@
-import AuthController from "./AuthController";
+import LoginController from "./LoginController";
 
-export const authController = new AuthController();
+export const loginController = new LoginController();
