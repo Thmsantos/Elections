@@ -1,22 +1,26 @@
-import type { Context } from "elysia";
 import type GetResultsService from "../../../core/services/Candidate/GetResults/GetResultsService";
 
 export default class GetResultsController {
-    private getResultsService;
+    constructor(private readonly getResultsService: GetResultsService) {}
 
-    constructor(getResultsService: GetResultsService) {
-        this.getResultsService = getResultsService;
-    }
-
-    public async handle(ctx: Context) {
+    public async handle() {
         try {
             const results = await this.getResultsService.execute();
 
-            ctx.set.status = 200;
-            return results;
-        } catch {
-            ctx.set.status = 500;
-            return { message: "Internal error" };
+            return {
+                status: 200,
+                body: {
+                    data: results,
+                },
+            };
+        } catch (error) {
+            return {
+                status: 500,
+                body: {
+                    message: "Internal error",
+                    error,
+                },
+            };
         }
     }
 }

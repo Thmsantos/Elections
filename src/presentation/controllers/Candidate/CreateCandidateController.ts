@@ -24,34 +24,30 @@ export default class CreateCandidateController implements Controller<
                 ctx.request,
             );
 
-            ctx.set.status = 201;
             return {
-                status: Number(ctx.status),
+                status: 201,
                 body: { message: "created", candidate },
             };
         } catch (error) {
             if (error instanceof Error) {
                 if (error.message === "UNAUTHORIZED") {
-                    ctx.set.status = 401;
                     return {
-                        status: Number(ctx.status),
-                        body: { message: "Unauthorized" },
+                        status: 401,
+                        body: { message: "Unauthorized", error },
                     };
                 }
 
                 if (error.message === "USER_EXISTS") {
-                    ctx.set.status = 409;
                     return {
-                        status: Number(ctx.status),
-                        body: { message: "User already exists" },
+                        status: 409,
+                        body: { message: "User already exists", error },
                     };
                 }
             }
 
-            ctx.set.status = 500;
             return {
-                status: Number(ctx.status),
-                body: { message: "Internal error" },
+                status: 500,
+                body: { message: "Internal error", error },
             };
         }
     }
