@@ -21,26 +21,23 @@ export default class VoteController implements Controller<
         try {
             await this.takeVoteService.execute(ctx.body);
 
-            ctx.set.status = 201;
             return {
-                status: Number(ctx.status),
+                status: 201,
                 body: { message: "Vote recorded" },
             };
         } catch (error: unknown) {
             if (error instanceof Error) {
                 if (error.message === "CANDIDATE_NOT_FOUND") {
-                    ctx.set.status = 404;
                     return {
-                        status: Number(ctx.status),
-                        body: { message: "Candidate not found" },
+                        status: 404,
+                        body: { message: "Candidate not found", error },
                     };
                 }
             }
 
-            ctx.set.status = 500;
             return {
-                status: Number(ctx.status),
-                body: { message: "Internal error" },
+                status: 500,
+                body: { message: "Internal error", error },
             };
         }
     }

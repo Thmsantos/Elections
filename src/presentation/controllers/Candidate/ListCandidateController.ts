@@ -1,4 +1,4 @@
-import type { Context } from "elysia";
+import { type Context } from "elysia";
 import type GetCandidatesService from "../../../core/services/Candidate/GetCandidatesService/GetCandidatesService";
 
 export default class ListCandidateController {
@@ -12,11 +12,10 @@ export default class ListCandidateController {
         try {
             const candidates = await this.getCandidatesService.execute();
 
-            ctx.set.status = 200;
-            return candidates;
-        } catch {
+            return { body: { data: candidates }, status: 200 };
+        } catch (error) {
             ctx.set.status = 500;
-            return { message: "Internal error" };
+            return { message: "Internal error", status: 500, error };
         }
     }
 }

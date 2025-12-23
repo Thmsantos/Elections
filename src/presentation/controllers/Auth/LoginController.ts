@@ -21,26 +21,23 @@ export default class LoginController implements Controller<
             const { username, password } = ctx.body;
             const logged = await this.loginService.execute(username, password);
 
-            ctx.set.status = 200;
             return {
-                status: Number(ctx.status),
+                status: 200,
                 body: { message: "login successful", logged },
             };
         } catch (error) {
             if (error instanceof Error) {
                 if (error.message === "invalid credentials") {
-                    ctx.set.status = 401;
                     return {
-                        status: Number(ctx.status),
-                        body: { message: error.message },
+                        status: 401,
+                        body: { message: error.message, error },
                     };
                 }
             }
 
-            ctx.set.status = 500;
             return {
-                status: Number(ctx.status),
-                body: { message: "Internal error" },
+                status: 500,
+                body: { message: "Internal error", error },
             };
         }
     }
